@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang='en' data-theme='light'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>StockSync — Real-Time Stock Tracking</title>
+  <meta name='description' content='Real-time mobile stock tracking system for FMCG distribution operations'>
+  <link rel='stylesheet' href='index.css'>
+</head>
+<body>
+  <!-- App Shell -->
+  <div id='app'>
+    <!-- Sidebar Navigation -->
+    <nav id='sidebar'>
+      <div class='sidebar-header'>
+        <h1 class='app-title'>StockSync</h1>
+        <p class='app-subtitle'>Real-Time Stock Tracking</p>
+      </div>
+      <ul class='nav-links'>
+        <li><a href='#dashboard' class='nav-link active' data-route='dashboard'>
+          <span class='nav-icon'>📊</span><span class='nav-text'>Dashboard</span></a></li>
+        <li><a href='#analytics' class='nav-link' data-route='analytics'>
+          <span class='nav-icon'>🔬</span><span class='nav-text'>Analytics</span></a></li>
+        <li><a href='#loading' class='nav-link' data-route='loading'>
+          <span class='nav-icon'>📦</span><span class='nav-text'>Morning Loading</span></a></li>
+        <li><a href='#delivery' class='nav-link' data-route='delivery'>
+          <span class='nav-icon'>🚚</span><span class='nav-text'>Delivery</span></a></li>
+        <li><a href='#returns' class='nav-link' data-route='returns'>
+          <span class='nav-icon'>↩️</span><span class='nav-text'>Returns / Hold</span></a></li>
+        <li><a href='#reconciliation' class='nav-link' data-route='reconciliation'>
+          <span class='nav-icon'>📋</span><span class='nav-text'>Reconciliation</span></a></li>
+      </ul>
+      <div class='sidebar-footer'>
+        <button id='theme-toggle' class='btn btn-outline' title='Toggle theme'>🌙 Dark Mode</button>
+        <button id='reset-data' class='btn btn-outline btn-danger' title='Reset all data'>🔄 Reset Demo</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id='main-content'>
+      <!-- Dashboard Section -->
+      <section id='dashboard-section' class='page-section active'>
+        <div class='page-header'>
+          <h2>Dashboard</h2>
+          <p class='page-description'>Real-time stock overview across all states</p>
+        </div>
+        <div id='dashboard-content'>
+          <!-- Stats cards row -->
+          <div class='stats-grid' id='dashboard-stats'></div>
+          <!-- Charts row -->
+          <div class='charts-grid'>
+            <div class='card'>
+              <h3>Stock Distribution by Category</h3>
+              <div id='stock-distribution-chart'></div>
+            </div>
+            <div class='card'>
+              <h3>Stock State by Category</h3>
+              <div id='category-chart'></div>
+            </div>
+          </div>
+          <!-- Active trips -->
+          <div class='card'>
+            <h3>Active Trips</h3>
+            <div id='active-trips-list' class='trips-grid'></div>
+          </div>
+          <!-- Recent transactions -->
+          <div class='card'>
+            <h3>Recent Transactions</h3>
+            <div id='recent-transactions' class='timeline'></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Analytics Section -->
+      <section id='analytics-section' class='page-section'>
+        <div class='page-header'>
+          <h2>Analytics & Insights</h2>
+          <p class='page-description'>Data-driven intelligence from the transaction log — the Event Sourcing payoff</p>
+        </div>
+        <div id='analytics-content'></div>
+      </section>
+
+      <!-- Loading Section -->
+      <section id='loading-section' class='page-section'>
+        <div class='page-header'>
+          <h2>Morning Loading</h2>
+          <p class='page-description'>Load products from godown onto trucks</p>
+        </div>
+        <div id='loading-content'></div>
+      </section>
+
+      <!-- Delivery Section -->
+      <section id='delivery-section' class='page-section'>
+        <div class='page-header'>
+          <h2>On-Route Delivery</h2>
+          <p class='page-description'>Record deliveries, shorts, and payments</p>
+        </div>
+        <div id='delivery-content'></div>
+      </section>
+
+      <!-- Returns Section -->
+      <section id='returns-section' class='page-section'>
+        <div class='page-header'>
+          <h2>Returns & Hold Management</h2>
+          <p class='page-description'>Process returns, damages, and resolve hold stock instantly</p>
+        </div>
+        <div id='returns-content'></div>
+      </section>
+
+      <!-- Reconciliation Section -->
+      <section id='reconciliation-section' class='page-section'>
+        <div class='page-header'>
+          <h2>End-of-Day Reconciliation</h2>
+          <p class='page-description'>Compare physical stock with SAP and export corrections</p>
+        </div>
+        <div id='reconciliation-content'></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div id='toast-container'></div>
+
+  <!-- Modal Container -->
+  <div id='modal-overlay' class='modal' hidden>
+    <div class='modal-content' id='modal-content'></div>
+  </div>
+
+  <script type='module' src='app.js'></script>
+</body>
+</html>
